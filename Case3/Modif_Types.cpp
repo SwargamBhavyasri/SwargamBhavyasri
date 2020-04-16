@@ -35,8 +35,9 @@ void type_storage()
     register int iRegister_N;    
     cout<<"Enter the Register ";
     cin>>iRegister_N;
-    iStatic_No=iStatic_No+iRegister_N*2;
-    cout<<endl;
+    cout<<"Enter Static ";
+    cin>>iStatic_No;
+     cout<<endl;
     cout<<"Storage classes"<<endl;
     cout<<"Static   =     "<<iStatic_No<<" "<<"Size:"<<sizeof(iStatic_No)<<endl;
     cout<<"Register =     "<<iRegister_N<<" "<<"Size:"<<sizeof(iRegister_N)<<endl;
@@ -51,15 +52,14 @@ int main(int argc,char *argv[])
      {
      	if(strcmp(argv[1],"-h"))
      	{
-		 
-        cout<<"Usage:"<<endl;
+	    cout<<"Usage:"<<endl;
         cout<<" Input : Values "<<endl;
     }
 }
     else
     {
     	//displaying the function
-        display();
+         display();
         //Here age is taken globally
         cout<<"Not Eligible :"<<age<<endl;
         type_storage();
