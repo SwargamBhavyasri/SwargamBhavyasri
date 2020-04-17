@@ -1,12 +1,24 @@
 /* Filename            :      Sum_Squares.cpp
    Creation Author     :      S.Bhavyasri
+   Description         :     Sum of the Squares of N numbers 
+   Requirements        :     #include<stdio.h>, #include<string.h>
    */
 #include<iostream>
 #include<string.h>
 using namespace std;
+/* Function Name : squaresum
+   Return Type   : int
+   Parameter     : iNum */
 int squaresum(int iNum) 
 { 
-    return (iNum * (iNum + 1) * (2 * iNum + 1)) / 6; 
+    //Checking the condition for positive integer
+    if(iNum>=1)
+    {
+    //Formula for the sum of squares 
+	return (iNum * (iNum + 1) * (2 * iNum + 1)) / 6; 
+    }
+    else 
+     cout<<"Only the positive values are allowed:  "<<endl;
 } 
 int main(int argc, char *argv[])
 {
@@ -24,8 +36,7 @@ int main(int argc, char *argv[])
 		cout<<"Enter Number"<<endl;
 		cin>>iNum;
 		//function call
-		squaresum(iNum);                 
-		cout<<squaresum(iNum)<<endl;
+        cout<<squaresum(iNum)<<endl;
 		
 	}
 }

@@ -1,16 +1,20 @@
-/*filename: Modif_Types.cpp
-  Author :  Swargam Bhavyasri */
+/*filename      : Modif_Types.cpp
+  Author        :  Swargam Bhavyasri 
+  Description    :  Program to display modifier types ,scope of the variables and storage classes
+  Requirements   :  #include<iostream>,#include<string.h>*/
 #include<iostream>
 #include<string.h>
 using namespace std;
 //Declared Global variable
-int age=16; 
+ int age=16; 
 void display()                 
 {
 	//Local Variable Declaration which will be used for this particulor function
     int age=18;
-    //age can be accessed by global declared variable
-    cout<<"Any Indian can eligible for Right to Vote:"<<age<<endl;
+    //Global variable is accessed
+    cout << "Value of global Variable " << ::age <<endl;
+   //age can be accessed by global declared variable
+  cout<<"Any Indian can eligible for Right to Vote:"<<age<<endl;
 }
 void display1()      
 {
@@ -37,7 +41,7 @@ void type_storage()
     cin>>iRegister_N;
     cout<<"Enter Static ";
     cin>>iStatic_No;
-     cout<<endl;
+    cout<<endl;
     cout<<"Storage classes"<<endl;
     cout<<"Static   =     "<<iStatic_No<<" "<<"Size:"<<sizeof(iStatic_No)<<endl;
     cout<<"Register =     "<<iRegister_N<<" "<<"Size:"<<sizeof(iRegister_N)<<endl;
