@@ -1,5 +1,5 @@
-/*filename      : Modif_Types.cpp
-  Author        :  Swargam Bhavyasri 
+/*filename      :   Modif_Types.cpp
+  Author        :   Swargam Bhavyasri 
   Description    :  Program to display modifier types ,scope of the variables and storage classes
   Requirements   :  #include<iostream>,#include<string.h>*/
 #include<iostream>
@@ -12,7 +12,7 @@ void display()
 	//Local Variable Declaration which will be used for this particulor function
     int age=18;
     //Global variable is accessed
-    cout << "Value of global Variable " << ::age <<endl;
+    cout << "Value of global Variable  " << ::age <<endl;
    //age can be accessed by global declared variable
   cout<<"Any Indian can eligible for Right to Vote:"<<age<<endl;
 }
@@ -49,6 +49,29 @@ void type_storage()
     cout<<endl;
 }
 }
+//class declaration
+class static_type
+{
+	//static data member
+	static int iNum1;
+	//normal variable
+	int iNum2;
+	public : void set(int iNo1,int iNo2)
+	{
+		iNum1=iNo1;
+		iNum2=iNo2;
+	}
+	void print();
+};
+//using scope resolution access the static member without static member function
+int static_type ::  iNum1;
+void static_type :: print()
+{   
+    cout<<endl;
+	cout<<"\n This is Static       :"<<iNum1;
+	cout<<"\n This is Non-Static   :"<<iNum2;
+	cout<<endl;
+}
 int main(int argc,char *argv[])
 {
 	//comments for displaying -h file 
@@ -68,6 +91,16 @@ int main(int argc,char *argv[])
         cout<<"Not Eligible :"<<age<<endl;
         type_storage();
         display1();
+        //creation of objects
+        static_type obj1,obj2;
+        //set the values of Num1,Num2 to 1 
+       obj1.set(1,1);
+	   obj1.print();
+	    //set the values of Num1,Num2 to 2
+    	obj2.set(2,2);
+     	obj2.print();
+	    obj1.print();
+	  
      }
     return 0;
 }
