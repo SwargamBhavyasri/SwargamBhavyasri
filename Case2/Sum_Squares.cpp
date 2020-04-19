@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
 	{
 		// declaration of variable using integer data type
 		int iNum;               
-		cout<<"Enter Number"<<endl;
+		cout<<"Enter Positive Integer"<<endl;
 		cin>>iNum;
 		//function call
-        cout<<squaresum(iNum)<<endl;
+        cout<<"Sum of Squares of N numbers =  "<<squaresum(iNum)<<endl;
 		
 	}
 }
