@@ -1,72 +1,92 @@
-/*filename : Operator_Oload.cpp
-Author     : Swargam Bhavyasri
+/*filename             : Operator_Oload.cpp
+Author                 : Swargam Bhavyasri
+Requirements           :  #include<iostream>,#include<string.h>
 */  
 #include<iostream>
 #include<string.h>
-#include<stdio.h>
 using namespace std;
-class Employee
+//class declaration
+class bank
 {
 private:
-    int *iD_no;               //declaration of variables in private 
+	//declaration of variables in private 
+    int *iAc_No;               
     char cName[20]; 
 public:
-    Employee()   
+	//default constructor
+    bank()   
     {
         cout<<"Default Constructor :"<<endl;
     }
-    Employee(int *i_no,char *cname)  
+    //parameterised constructor
+    bank(int *i_no,char *cname)  
     {
         cout<<"Parameterized Constructor is Invoked"<<endl;
-        iD_no=i_no;
+        iAc_No=i_no;
         strcpy(cName,cname);
     }
- void Assign_Value(int *ino,char cname[])
+    /*function name : Acc_Details
+     parameters     : *ino,cname[]
+     */
+ void Acc_Details(int *ino,char cname[])
     {
-        iD_no=ino;
+        iAc_No=ino;
         strcpy(cName,cname);
     }
 
     void display()
     {
-        cout<<"ID Number :"<<*iD_no<<endl<<"Name:"<<cName<<endl;
+        cout<<"ID Number :"<<*iAc_No<<endl<<"Name:"<<cName<<endl;
         cout<<endl;
     }
 
     void operator ++()  
     {
-        ++(*iD_no);
+        ++(*iAc_No);
     }
-    ~Employee()
+    ~bank()
     {
         cout<<"Destructor is Invoked"<<endl;
     }
 };
 int main(int argc,char* argv[])
 {
-    if(argc==2)        // condition for the arguments to display -h file
+	// condition for the arguments to display -h file
+    if(argc>=2) //condition for the arguments to display -h file
+   {
+   	if(strcmp(argv[1],"-h"))
+   	        
     {
      cout<<"Usage :"<<endl;
      cout<<"Enter the integer and char variables "<<endl;
         }
+    }
     else
     {
-        Employee e;              //object creation for class 
-        int iNum;
+    	//object creation for class 
+        bank b1; 
+		int iNum;
         char cNme[20];
-        cout<<"Enter ID of the Employee:";
+        cout<<"Enter Acc No of the A/C Holder:";
         cin>>iNum;
-        cout<<"Enter Name of the Employee:";
+        cout<<"Enter Name of the A/c Holder:";
         getchar();
         cin.get(cNme,100,'\n');
         cout<<endl<<"Using Parameterized Constructor :"<<endl;
-        Employee e2(&iNum,cNme);    
-        e2.display();
+        bank b2(&iNum,cNme);    
+        b2.display();
         cout<<"After Operator Overloading"<<endl;
-        ++e2;     
+        ++b2;     
         cout<<"Using Member Function"<<endl;
-        e.Assign_Value(&iNum,cNme);    
-        e.display();
-    }
+        b1.Acc_Details(&iNum,cNme);    
+        b1.display();
+        //shallow copy 
+        bank b3=b1;
+        b1.display();
+		b3.display(); 
+        }
     return 0;
 }
+
+ 
+
