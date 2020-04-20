@@ -92,14 +92,16 @@ int main(int argc,char *argv[])
         type_storage();
         display1();
         //creation of objects
-        static_type obj1,obj2;
+        static_type s1,s2;
         //set the values of Num1,Num2 to 1 
-       obj1.set(1,1);
-	   obj1.print();
+       s1.set(1,1);
+	   s1.print();
 	    //set the values of Num1,Num2 to 2
-    	obj2.set(2,2);
-     	obj2.print();
-	    obj1.print();
+    	s2.set(2,2); 
+    	//print the values of object s2
+     	s2.print();
+     	//print the values of object s1
+	    s1.print();
 	  
      }
     return 0;
