@@ -10,7 +10,7 @@ using namespace std;
 //class Declaration
 class employee
 {
-	//private data member
+	//private variables
     private:  
     int iNum,iAge;
     double dWage;
@@ -21,15 +21,15 @@ class employee
 	  //directly initialize our member variables*/
 	   iNum=101;
        dWage=15000;
-	   iAge =28; 
+	   iAge =28;
 }
-
     employee(int iId,double dSal,int iAg)
 	{  
 	  cout<<"Parameterised Constructor Employee ::"<<endl;
-	   iNum= iId;
-	   dWage= dSal;
-	    iAge=iAg;
+	  iNum= iId;
+	  dWage= dSal;
+	  iAge= iAg;
+	  
 }
      //member functions
 	   public: void init();
@@ -76,9 +76,8 @@ int main(int argc,char *argv[])
         // trying to access private data member directly outside the class
         e.display();
         //parameterized constructors
-        employee e1(101,20000,30);
-         e1.display();
-         }
-     
-    return 0;
+        employee e1(111,22000,32);
+        e1.display();
+    }
+     return 0;
 }
