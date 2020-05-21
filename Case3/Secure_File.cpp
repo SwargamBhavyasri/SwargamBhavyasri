@@ -72,11 +72,12 @@ void Secure :: Encrypt(char *filename,char *key)
 	                       cout<<sSentence<<" ";
 	                      // writing the data to a new file
                            odfile<<sSentence<<"  ";
-                           odfile<< endl;
+                         
                          
                  }
                  
                  cout<<endl ;
+                 odfile<< endl;
                   
               } 
 		    else
