@@ -19,5 +19,5 @@ private:
       public: 	
 		void Encrypt(char* filename, char* key) ;
 		void decrypt(char* filename, char* key) ;
-			};
+};
 		

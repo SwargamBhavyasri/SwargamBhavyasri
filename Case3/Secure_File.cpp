@@ -9,10 +9,11 @@ using namespace std;
   Return type    :  void*/
 void Secure :: Encrypt(char *filename,char *key)
 {
-   ifstream myfile (filename) ;
-   ofstream ofile("Encoded.txt") ; 
-    ofile<<key ;
-   ofile<<endl ;
+	
+    ifstream myfile (filename) ;
+    ofstream outfile("Encoded.txt") ; 
+    outfile<<key ;
+    outfile<<endl ;
    //opening a file
    if (myfile.is_open())
 {
@@ -24,24 +25,24 @@ void Secure :: Encrypt(char *filename,char *key)
 	  	 while (iss >> sWord)
 	  	 { 
 		    
-	  	         //Reverse the sentence from begining to end
-	  	         std::reverse(sWord.begin(), sWord.end());
-	              iLen+=sWord.length()+1;
-	              //Reversed sentence and spaces replaced with *
-	              cout<<sWord<<"*";
-                  // writing the data to a new file
-        	     ofile<<(sWord)<<"*";
-                 //condition to check the lenght of the line
-                 if(iLen<sLine.length())
-                   ofile<<"*";
-         	}
+	  	           //Reverse the sentence from begining to end
+	  	           std::reverse(sWord.begin(), sWord.end());
+	               iLen+=sWord.length()+1;
+	               //Reversed sentence and spaces replaced with *
+	               cout<<sWord<<"*";
+                   // writing the data to a new file
+        	       outfile<<(sWord)<<"*";
+                    //condition to check the lenght of the line
+                    if(iLen<sLine.length())
+                     outfile<<"*";
+         }
          	
            cout<<endl;
         }
         
         //file closing
          myfile.close();
-         ofile.close();
+         outfile.close();
          
         }  
    else
@@ -58,31 +59,32 @@ void Secure :: Encrypt(char *filename,char *key)
     {
     	 while ( getline (ifile,kline) )
  	     {
- 	     	
+ 	     	 //if condition to check the key is same 
 	 	     if(Key.compare(kline)==0)
 	 	     {
-	 	     	
+	 	     	//if condition true then read the data in a file
 	 	     	while ( getline (ifile,sSentence,'*') )
 	 	     	{
-	 	     	   //Reverse the sentence from begining to end
-	 	     	   std::reverse(sSentence.begin(), sSentence.end());
-	                //Reversed sentence and spaces replaced with *
-	                   cout<<sSentence<<" ";
-                        // writing the data to a new file
-                         odfile<<sSentence<<"  ";
-                }
-                
-	 	     		
-               	 cout<<endl ;
-                 odfile<< endl ;
-
-           } 
+	 	    
+	 	     	         //Reverse the sentence from begining to end
+	 	     	          std::reverse(sSentence.begin(), sSentence.end());
+	                     //Reversed sentence and spaces replaced with " " 
+	                       cout<<sSentence<<" ";
+	                      // writing the data to a new file
+                           odfile<<sSentence<<"  ";
+                           odfile<< endl;
+                         
+                 }
+                 
+                 cout<<endl ;
+                  
+              } 
 		    else
 		    {
         	
             cout << "Wrong Key Entered";
             }
-    }
+         }
 	//file closing
    	ifile.close();
    	odfile.close();
@@ -94,6 +96,7 @@ void Secure :: Encrypt(char *filename,char *key)
 
 int main(int argc,char *argv[])  
 {
+	//creates object for a secure class
 	Secure s ;
 	// checking arguments to display -h
     if((argc==2) && (strcmp(argv[1],"-h")==0))
